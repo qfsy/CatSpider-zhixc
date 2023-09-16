@@ -28,7 +28,7 @@ public class AppYsV2 extends Spider {
         super.init(context, extend);
         try {
             extInfos = extend.split("###");
-        } catch (Thrown th) {
+        } catch (Throwable th) {
             th.printStackTrace();
         }
     }
