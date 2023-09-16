@@ -28,8 +28,8 @@ public class AppYsV2 extends Spider {
         super.init(context, extend);
         try {
             extInfos = extend.split("###");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
