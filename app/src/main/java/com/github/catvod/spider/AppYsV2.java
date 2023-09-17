@@ -24,12 +24,12 @@ public class AppYsV2 extends Spider {
     private String[] extInfos = null;
 
     @Override
-    public void init(Context context, String extend) {
+    public void init(Context context, String extend) throws Exception {
         super.init(context, extend);
         try {
             extInfos = extend.split("###");
-        } catch (Throwable th) {
-            th.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
