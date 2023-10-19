@@ -54,6 +54,7 @@ public class NongMing extends Spider {
 
     @Override
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) throws Exception {
+        // 二级筛选处理 start
         HashMap<String, String> ext = new HashMap<>();
         if (extend != null && extend.size() > 0) {
             ext.putAll(extend);
@@ -63,6 +64,7 @@ public class NongMing extends Spider {
         String by = ext.get("by") == null ? "" : ext.get("by");
         String classType = ext.get("class") == null ? tid : ext.get("class");
 //            String lang = ext.get("lang") == null ? "" : ext.get("lang");
+        // 二级筛选处理 end
 
         String cateUrl = siteURL + String.format("/vod-list-id-%s-pg-%s-order--by-%s-class-0-year-%s-letter--area-%s-lang-.html", classType, pg, by, year, area);
         String html = OkHttp.string(cateUrl, getHeader());
@@ -121,7 +123,7 @@ public class NongMing extends Spider {
         String director = getDirector(html);
         String description = doc.select(".detail-con p").text().replaceAll("简 介：", "");
 
-        JSONObject vodAtom = new JSONObject()
+        JSONObject vod = new JSONObject()
                 .put("vod_id", ids.get(0))
                 .put("vod_name", name)
                 .put("vod_pic", pic)
@@ -134,12 +136,11 @@ public class NongMing extends Spider {
                 .put("vod_content", description);
 
         if (playMap.size() > 0) {
-            vodAtom.put("vod_play_from", TextUtils.join("$$$", playMap.keySet()));
-            vodAtom.put("vod_play_url", TextUtils.join("$$$", playMap.values()));
+            vod.put("vod_play_from", TextUtils.join("$$$", playMap.keySet()));
+            vod.put("vod_play_url", TextUtils.join("$$$", playMap.values()));
         }
 
-        JSONArray jsonArray = new JSONArray()
-                .put(vodAtom);
+        JSONArray jsonArray = new JSONArray().put(vod);
         JSONObject result = new JSONObject()
                 .put("list", jsonArray);
         return result.toString();

@@ -32,32 +32,26 @@ public class PushAgent extends Spider {
     }
 
     private static boolean isThunderSupport(String url) {
-        // magnet:?xt=urn:btih:f41aba874ebfe2d2323f6b06e0e4f28dd1b1fab0
-        // ed2k://|file|%E3%80%90%E9%AB%98%E6%B8%85MP4%E7%94%B5%E5%B
         return url.toLowerCase().startsWith("magnet:?xt=")
                 || url.toLowerCase().startsWith("thunder://")
                 || url.toLowerCase().startsWith("ftp://")
-                || url.toLowerCase().startsWith("ed2k://");
+                || url.toLowerCase().startsWith("ed2k://")
+                || url.toLowerCase().endsWith(".torrent");
     }
 
-    private String getResultStr(List<String> ids, String name, String typeName, String vod_play_from) {
-        try {
-            String url = ids.get(0).trim();
-            JSONObject vod = new JSONObject()
-                    .put("vod_id", ids.get(0))
-                    .put("vod_name", name)
-                    .put("vod_pic", "https://pic.rmb.bdstatic.com/bjh/1d0b02d0f57f0a42201f92caba5107ed.jpeg")
-                    .put("type_name", typeName)
-                    .put("vod_content", url)
-                    .put("vod_play_from", vod_play_from)
-                    .put("vod_play_url", "立即播放$" + url);
-            JSONArray list = new JSONArray().put(vod);
-            JSONObject result = new JSONObject().put("list", list);
-            return result.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
+    private String getResultStr(List<String> ids, String name, String typeName, String vod_play_from) throws Exception {
+        String url = ids.get(0).trim();
+        JSONObject vod = new JSONObject()
+                .put("vod_id", ids.get(0))
+                .put("vod_name", name)
+                .put("vod_pic", "https://pic.rmb.bdstatic.com/bjh/1d0b02d0f57f0a42201f92caba5107ed.jpeg")
+                .put("type_name", typeName)
+                .put("vod_content", url)
+                .put("vod_play_from", vod_play_from)
+                .put("vod_play_url", "立即播放$" + url);
+        JSONArray list = new JSONArray().put(vod);
+        JSONObject result = new JSONObject().put("list", list);
+        return result.toString();
     }
 
     @Override
