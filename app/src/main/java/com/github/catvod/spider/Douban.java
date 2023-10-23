@@ -99,7 +99,7 @@ public class Douban extends Spider {
             String name = item.optString("title");
             String pic = getPic(item);
             String remark = getRating(item);
-            String vid = id + "###" + name + "###" + pic;
+            String vid = "msearch:" + id + "###" + name + "###" + pic;
             JSONObject vod = new JSONObject()
                     .put("vod_id", vid)
                     .put("vod_name", name)
@@ -144,31 +144,5 @@ public class Douban extends Spider {
 //            e.printStackTrace();
         }
         return "";
-    }
-
-
-    @Override
-    public String detailContent(List<String> ids) throws Exception {
-        String[] split = ids.get(0).split("###");
-        String name = split[1];
-        String pic = split[2];
-        String tips = "如果15秒内不能播放，请看其他片或进行搜索";
-        JSONObject vodInfo = new JSONObject()
-                .put("vod_id", ids.get(0))
-                .put("vod_name", name)
-                .put("vod_pic", pic)
-                .put("type_name", "")
-                .put("vod_year", "")
-                .put("vod_area", "")
-                .put("vod_remarks", "")
-                .put("vod_actor", tips)
-                .put("vod_director", tips)
-                .put("vod_content", tips);
-
-        JSONArray jsonArray = new JSONArray()
-                .put(vodInfo);
-        JSONObject result = new JSONObject()
-                .put("list", jsonArray);
-        return result.toString();
     }
 }
