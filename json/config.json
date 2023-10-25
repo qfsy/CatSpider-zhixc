@@ -1,5 +1,5 @@
 {
-  "spider": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/jar/custom_spider.jar;md5;8f7d7dbaf53f5e4608d77a87f2579a24",
+  "spider": "https://gh.api.99988866.xyz/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/jar/custom_spider.jar;md5;fb28e8481a6d3d30963d27d093f55eb0",
   
   "lives": [
     {
@@ -38,7 +38,7 @@
   ],
   
   "sites": [
-    {"key": "Douban", "name": "豆瓣", "type": 3, "api": "csp_Douban", "searchable": 0},
+    {"key": "Douban", "name": "豆瓣", "type": 3, "api": "csp_Douban", "searchable": 0, "ext": "https://ghproxy.com/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/douban.json"},
     {"key": "Xb6v", "name": "新版6V电影网", "type": 3, "api": "csp_Xb6v", "searchable": 0},
     {"key": "SixV", "name": "6V电影网(磁力)", "type": 3, "api": "csp_SixV", "searchable": 1, "ext": "https://www.6vdy.org/"},
     {"key": "PiaoHua", "name": "新飘花电影网(磁力)", "type": 3, "api": "csp_PiaoHua", "searchable": 1},
