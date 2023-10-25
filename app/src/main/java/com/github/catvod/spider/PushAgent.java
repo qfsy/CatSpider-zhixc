@@ -31,7 +31,7 @@ public class PushAgent extends Spider {
         return getResultStr(ids, detailURL, "嗅探类链接", "嗅探");
     }
 
-    private static boolean isThunderSupport(String url) {
+    private boolean isThunderSupport(String url) {
         return url.toLowerCase().startsWith("magnet:?xt=")
                 || url.toLowerCase().startsWith("thunder://")
                 || url.toLowerCase().startsWith("ftp://")

@@ -150,7 +150,7 @@ public class LocalFileV2 extends Spider {
         return result.toString();
     }
 
-    private static String getFileExt(String name) {
+    private String getFileExt(String name) {
         try {
             return name.substring(name.lastIndexOf(".") + 1).toLowerCase();
         } catch (Exception e) {
