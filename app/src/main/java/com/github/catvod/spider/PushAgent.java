@@ -14,29 +14,43 @@ public class PushAgent extends Spider {
 
     @Override
     public String detailContent(List<String> ids) throws Exception {
-        String detailURL = ids.get(0).trim();
-        if (isThunderSupport(detailURL)) {
-            String name = "";
-            Matcher matcher = Pattern.compile("(^|&)dn=([^&]*)(&|$)").matcher(URLDecoder.decode(detailURL));
-            if (matcher.find()) {
-                name = matcher.group(2);
-            }
-            String finalName = !name.equals("") ? name : detailURL;
-            return getResultStr(ids, finalName, "磁力链接|迅雷链接", "magnet");
-        } else if (Misc.isVip(detailURL)) {
-            return getResultStr(ids, detailURL, "解析类链接", "解析");
-        } else if (Misc.isVideoFormat(detailURL)) {
-            return getResultStr(ids, detailURL, "可以直接播放的直链", "直连");
+        String detailUrl = ids.get(0).trim();
+        if (detailUrl.toLowerCase().startsWith("jianpian://pathtype=url&path=")) {
+            ids.remove(0);
+            String url = detailUrl.toLowerCase();
+            ids.add(url.replaceAll("jianpian://pathtype=url&path=", ""));
+            String name = getName(url);
+            return getResultStr(ids, name, "荐片链接", "荐片边下边播");
         }
-        return getResultStr(ids, detailURL, "嗅探类链接", "嗅探");
+        if (isThunderSupport(detailUrl)) {
+            String name = "";
+            Matcher matcher = Pattern.compile("(^|&)dn=([^&]*)(&|$)").matcher(URLDecoder.decode(detailUrl));
+            if (matcher.find()) name = matcher.group(2);
+            if (name.equals("")) name = detailUrl;
+            return getResultStr(ids, name, "磁力链接|迅雷链接|FTP", "magnet");
+        }
+        if (Misc.isVip(detailUrl)) return getResultStr(ids, detailUrl, "解析类链接", "解析");
+        if (Misc.isVideoFormat(detailUrl)) return getResultStr(ids, detailUrl, "可以直接播放的直链", "直连");
+        return getResultStr(ids, detailUrl, "嗅探类链接", "嗅探");
+    }
+
+    private String getName(String url) {
+        try {
+            String decodeUrl = URLDecoder.decode(url);
+            int start = decodeUrl.lastIndexOf("/");
+            int end = decodeUrl.lastIndexOf(".");
+            return decodeUrl.substring(start, end);
+        } catch (Exception e) {
+        }
+        return url;
     }
 
     private boolean isThunderSupport(String url) {
-        return url.toLowerCase().startsWith("magnet:?xt=")
-                || url.toLowerCase().startsWith("thunder://")
-                || url.toLowerCase().startsWith("ftp://")
-                || url.toLowerCase().startsWith("ed2k://")
-                || url.toLowerCase().endsWith(".torrent");
+        return url.startsWith("magnet:?xt=")
+                || url.startsWith("thunder://")
+                || url.startsWith("ftp://")
+                || url.startsWith("ed2k://")
+                || url.endsWith(".torrent");
     }
 
     private String getResultStr(List<String> ids, String name, String typeName, String vod_play_from) throws Exception {
