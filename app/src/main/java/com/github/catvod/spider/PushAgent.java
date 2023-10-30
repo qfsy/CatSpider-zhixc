@@ -39,7 +39,7 @@ public class PushAgent extends Spider {
             String decodeUrl = URLDecoder.decode(url);
             int start = decodeUrl.lastIndexOf("/");
             int end = decodeUrl.lastIndexOf(".");
-            return decodeUrl.substring(start, end);
+            return decodeUrl.substring(start + 1, end);
         } catch (Exception e) {
         }
         return url;
