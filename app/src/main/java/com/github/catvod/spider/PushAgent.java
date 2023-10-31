@@ -73,6 +73,7 @@ public class PushAgent extends Spider {
         JSONObject result = new JSONObject();
         switch (flag) {
             case "magnet":
+            case "荐片边下边播":
             case "直连":
                 result.put("parse", 0);
                 break;
