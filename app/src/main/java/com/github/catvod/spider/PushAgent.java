@@ -18,7 +18,7 @@ public class PushAgent extends Spider {
         if (detailUrl.toLowerCase().startsWith("jianpian://pathtype=url&path=")) {
             ids.remove(0);
             String url = detailUrl.toLowerCase();
-            ids.add(url.replaceAll("jianpian://pathtype=url&path=", ""));
+            ids.add(url.replaceAll("jianpian://pathtype=url&path=", "tvbox-xg:"));
             String name = getName(url);
             return getResultStr(ids, name, "荐片链接", "荐片边下边播");
         }
