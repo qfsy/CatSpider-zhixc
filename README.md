@@ -20,23 +20,19 @@
 
 
 ### 4.配置接口
-> FongMi的影视 配置加速地址1: https://ghproxy.net/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/FongMi_TV_config.json
+> FongMi的影视APP / TVBox 配置地址（可能需要代理）: https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/config.json
+>
+> FongMi的影视APP / TVBox 配置加速地址1: https://ghproxy.net/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/config.json
 >
 >
-> FongMi的影视 配置加速地址2: https://ghproxy.com/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/FongMi_TV_config.json
-> 
-> 
-> TVBox配置加速地址1: https://ghproxy.net/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/tvbox_config.json
->
->
-> TVBox配置加速地址2: https://ghproxy.com/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/tvbox_config.json
+> FongMi的影视APP / TVBox 配置加速地址2: https://ghproxy.com/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/config.json
 
 
 
 ### 5.推荐的软件
 > 强烈推荐使用 FongMi 的影视，支持自动换源，非常强大，作者持续更新维护。其仓库地址：https://github.com/FongMi/TV
 > 
-> 如果需要播放磁力的话，可以使用俊版TVBox、takagen99版TVBox，安装包发布仓库：https://github.com/o0HalfLife0o/TVBoxOSC
+> 俊版TVBox、takagen99版TVBox，安装包发布仓库：https://github.com/o0HalfLife0o/TVBoxOSC
 > 
 > 俊版仓库地址：https://github.com/q215613905/TVBoxOS
 > 
