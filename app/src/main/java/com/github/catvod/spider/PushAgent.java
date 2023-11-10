@@ -1,7 +1,7 @@
 package com.github.catvod.spider;
 
 import com.github.catvod.crawler.Spider;
-import com.github.catvod.utils.Misc;
+import com.github.catvod.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -29,8 +29,8 @@ public class PushAgent extends Spider {
             if (name.equals("")) name = detailUrl;
             return getResultStr(ids, name, "磁力链接|迅雷链接|FTP", "magnet");
         }
-        if (Misc.isVip(detailUrl)) return getResultStr(ids, detailUrl, "解析类链接", "解析");
-        if (Misc.isVideoFormat(detailUrl)) return getResultStr(ids, detailUrl, "可以直接播放的直链", "直连");
+        if (Utils.isVip(detailUrl)) return getResultStr(ids, detailUrl, "解析类链接", "解析");
+        if (Utils.isVideoFormat(detailUrl)) return getResultStr(ids, detailUrl, "可以直接播放的直链", "直连");
         return getResultStr(ids, detailUrl, "嗅探类链接", "嗅探");
     }
 
