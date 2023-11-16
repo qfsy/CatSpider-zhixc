@@ -17,6 +17,8 @@
 ### 3.编译和构建 jar：
 > 在调试完后，可以将 TVJar_test 项目调试后的 spider 代码拷贝到当前项目 CatVodTVSpider 对应的包下面，然后执行 buildAndGenJar.bat
 就可以得到 jar 包了。
+>
+> 如果你用的操作系统是win7，无法正常生成jar，那么可以参考 [pr2](https://github.com/zhixc/CatVodTVSpider/pull/2)
 
 
 ### 4.配置接口
