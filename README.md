@@ -22,8 +22,6 @@
 
 
 ### 4.配置接口
-> FongMi的影视APP / TVBox 配置地址（可能需要代理）: https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/config.json
->
 > FongMi的影视APP / TVBox 配置加速地址1: https://ghproxy.net/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/config.json
 >
 >
@@ -82,5 +80,5 @@
 ]
 ```
 - m3u 格式的文件，里面一般带有图片，如果在json配置文件里面写了图片链接，那么就以json配置文件的为主。
-- 一些直播源来自：Yoursmile7 的 [TVBox](https://agit.ai/Yoursmile7/TVBox)、youshandefeiyang 的 [live-Url](https://github.com/youshandefeiyang/live-Url) 、Ftindy 的 [IPTV-URL](https://github.com/Ftindy/IPTV-URL)、范明明的 [live](https://github.com/fanmingming/live) 等项目，非常感谢 Yoursmile7、 youshandefeiyang、Ftindy、范明明的分享。
+- 一些直播源来自：Yoursmile7 的 [TVBox](https://agit.ai/Yoursmile7/TVBox)、Ftindy 的 [IPTV-URL](https://github.com/Ftindy/IPTV-URL)、范明明的 [live](https://github.com/fanmingming/live) 等项目，非常感谢 Yoursmile7、Ftindy、范明明的分享。
 
